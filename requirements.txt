@@ -1,0 +1,19 @@
+# Dependencias de las recetas.
+# Instala todo con:  pip install -r requirements.txt
+
+# Cliente para hablar con la API de NVIDIA NIM (es compatible con OpenAI).
+openai>=1.30.0
+
+# Carga la clave desde el archivo .env sin tener que exportarla a mano.
+python-dotenv>=1.0.0
+
+# Receta 01: extraer texto de archivos PDF.
+pypdf>=4.0.0
+
+# Receta 08: calculo de similitud coseno para el RAG.
+numpy>=1.24.0
+
+# Recetas 03 y 14: transcripcion de audio en local (opcional).
+# Es una descarga grande; instalala solo si vas a transcribir audio:
+#   pip install faster-whisper
+# faster-whisper>=1.0.0

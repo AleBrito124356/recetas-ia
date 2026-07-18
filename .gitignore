@@ -1,0 +1,25 @@
+# Claves y secretos (NUNCA subir el .env con tu clave real)
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+
+# Salidas generadas por las recetas (los archivos de ejemplo SI se suben)
+datos/movimientos_clasificados.json
+datos/sinteticos/
+results/
+logs/
+*.log
+
+# Sistema operativo / editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

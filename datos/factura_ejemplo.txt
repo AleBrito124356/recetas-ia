@@ -1,0 +1,27 @@
+DISTRIBUIDORA CENTRAL, S.A.
+RUC: 155612345-2-2021 DV 33
+Ave. Ricardo J. Alfaro, Edificio Plaza Norte, Local 4
+Ciudad de Panama, Panama
+Tel: 300-4567
+
+FACTURA No. 000148723
+Fecha: 12/02/2026
+
+Cliente: Cafeteria La Esquina
+RUC Cliente: 8-912-3456
+
+------------------------------------------------------------
+Cant.  Descripcion                      P. Unit.    Importe
+------------------------------------------------------------
+  4    Saco de cafe grano 5 lb           18.50       74.00
+  2    Caja de vasos 12oz (50u)          9.75        19.50
+  6    Jarabe vainilla botella 1L        6.25        37.50
+  1    Molino electrico industrial       145.00      145.00
+------------------------------------------------------------
+                                   Subtotal:        276.00
+                                   ITBMS 7%:         19.32
+                                   TOTAL:            295.32
+
+Forma de pago: Credito 30 dias
+Moneda: PAB (Balboa)
+Gracias por su compra.

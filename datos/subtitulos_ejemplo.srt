@@ -1,0 +1,22 @@
+1
+00:00:01,000 --> 00:00:04,200
+Hola y bienvenidos a este tutorial rapido.
+
+2
+00:00:04,500 --> 00:00:08,000
+Hoy vamos a aprender a usar inteligencia artificial
+en tareas del dia a dia.
+
+3
+00:00:08,300 --> 00:00:12,100
+No necesitas ser programador experto
+para sacarle provecho.
+
+4
+00:00:12,400 --> 00:00:16,000
+Empecemos con un ejemplo sencillo
+que puedes probar ahora mismo.
+
+5
+00:00:16,300 --> 00:00:19,500
+Si te gusta el video, no olvides suscribirte.

@@ -1,0 +1,21 @@
+Ana: Buenos dias a todos, gracias por conectarse. La idea de hoy es cerrar el plan del lanzamiento de la version 2.0 y repartir las tareas pendientes.
+
+Carlos: Perfecto. Lo primero, decidimos si movemos la fecha. El equipo de desarrollo pidio una semana mas para terminar las pruebas.
+
+Ana: Si, lo hable con desarrollo. Vamos a mover el lanzamiento del 15 de marzo al 22 de marzo. Damos esa semana extra para pruebas y asi salimos con menos riesgo.
+
+Lucia: De acuerdo con la fecha. Yo me encargo de actualizar el calendario y avisar a los clientes que estaban esperando la version nueva.
+
+Carlos: Sobre marketing, necesitamos el video de demostracion listo antes del lanzamiento. Yo puedo escribir el guion pero necesito que alguien lo grabe.
+
+Ana: Que lo grabe el equipo de diseno. Lucia, puedes coordinar con Diego para que tengan el video listo para el 18 de marzo?
+
+Lucia: Si, lo coordino con Diego esta semana.
+
+Carlos: Otra cosa, todavia no decidimos el precio del nuevo plan Premium. Queda pendiente, lo vemos en la proxima reunion con datos de la competencia.
+
+Ana: Bien, entonces eso queda abierto. Yo preparo la comparativa de precios para la proxima. Ultimo punto, la documentacion tecnica.
+
+Lucia: La documentacion la actualiza el equipo de soporte, pero todavia no tenemos responsable asignado. Habria que definirlo.
+
+Ana: Lo dejamos pendiente tambien y lo asigno cuando hable con soporte manana. Creo que cubrimos todo. Gracias a todos.
