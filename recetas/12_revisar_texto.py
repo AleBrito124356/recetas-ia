@@ -15,11 +15,12 @@ Uso
 ---
   python recetas/12_revisar_texto.py --texto "ola como estas, kiero saver si bienes mañana"
   python recetas/12_revisar_texto.py --archivo borrador.txt --salida corregido.txt
+  python recetas/12_revisar_texto.py        (usa datos/borrador_ejemplo.txt)
+  python recetas/12_revisar_texto.py --demo (sin clave: respuesta pregrabada)
 """
 
 import sys
 import difflib
-import argparse
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -74,21 +75,27 @@ def mostrar_diff(original, corregido):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Corrige un texto y muestra los cambios.")
-    grupo = parser.add_mutually_exclusive_group(required=True)
+    parser = nim.nuevo_parser("Corrige un texto y muestra los cambios.")
+    grupo = parser.add_mutually_exclusive_group()
     grupo.add_argument("--texto", help="Texto a corregir, entre comillas.")
-    grupo.add_argument("--archivo", help="Archivo de texto a corregir.")
+    grupo.add_argument(
+        "--archivo",
+        help="Archivo de texto a corregir (por defecto datos/borrador_ejemplo.txt).",
+    )
     parser.add_argument("--salida", help="Archivo donde guardar el texto corregido.")
     args = parser.parse_args()
 
-    if args.archivo:
-        ruta = Path(args.archivo)
+    if args.texto is None:
+        ruta = Path(args.archivo or nim.ruta_datos("borrador_ejemplo.txt"))
         if not ruta.exists():
             print(f"No encuentro el archivo: {ruta}")
             sys.exit(1)
         original = ruta.read_text(encoding="utf-8").strip()
     else:
         original = args.texto.strip()
+    if not original:
+        print("No hay texto que revisar.")
+        sys.exit(1)
 
     print("Revisando el texto...\n")
     corregido = corregir(original)
@@ -107,4 +114,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    nim.ejecutar(main)

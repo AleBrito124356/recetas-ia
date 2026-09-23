@@ -17,10 +17,10 @@ Uso
 ---
   python recetas/06_generar_posts.py "Como una PYME puede empezar a usar IA"
   python recetas/06_generar_posts.py "Beneficios del trabajo remoto" --red linkedin
+  python recetas/06_generar_posts.py --demo      (tema de ejemplo, sin clave)
 """
 
 import sys
-import argparse
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -48,6 +48,8 @@ Estilo: cercano y visual, con algunos emojis bien puestos (sin abusar). Un
 gancho corto arriba, 2 o 3 frases de valor, y al final una linea de 5 a 8
 hashtags relevantes en espanol."""
 
+TEMA_EJEMPLO = "Como una PYME puede empezar a usar IA"
+
 # Mapa de redes disponibles: nombre -> (titulo para mostrar, prompt).
 REDES = {
     "linkedin": ("LinkedIn", PROMPT_LINKEDIN),
@@ -67,8 +69,13 @@ def generar(tema, prompt_plantilla):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Genera posts para redes desde un tema.")
-    parser.add_argument("tema", help="El tema sobre el que generar el contenido.")
+    parser = nim.nuevo_parser("Genera posts para redes desde un tema.")
+    parser.add_argument(
+        "tema",
+        nargs="?",
+        default=TEMA_EJEMPLO,
+        help=f"El tema sobre el que generar el contenido (por defecto: '{TEMA_EJEMPLO}').",
+    )
     parser.add_argument(
         "--red",
         choices=list(REDES.keys()),
@@ -88,4 +95,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    nim.ejecutar(main)
