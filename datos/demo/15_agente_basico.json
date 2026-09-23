@@ -1,0 +1,24 @@
+{
+  "receta": "15_agente_basico",
+  "nota": "Respuestas para el modo demo (NIM_DEMO=1). La clave es el SHA-256 de los mensajes enviados; 'origen' dice de donde sale cada respuesta.",
+  "entradas": [
+    {
+      "clave": "f832ff119e9d58a71a5ba3952bd515a6",
+      "origen": "redactada a mano",
+      "peticion": "Cuanto es 145 * 32 y cuantas letras tiene el resultado?",
+      "respuesta": "Pensamiento: Primero necesito multiplicar 145 por 32 con la calculadora.\nAccion: calcular\nEntrada: 145 * 32"
+    },
+    {
+      "clave": "1f4d3e09a644972731d2e12bdbdd7d41",
+      "origen": "redactada a mano",
+      "peticion": "Observacion: 4640",
+      "respuesta": "Pensamiento: El resultado es 4640. Ahora cuento cuantos caracteres tiene.\nAcción: contar_letras\nEntrada: 4640"
+    },
+    {
+      "clave": "47df777bb6c538fa99e3ae8771f0027b",
+      "origen": "redactada a mano",
+      "peticion": "Observacion: El texto '4640' tiene 4 caracteres alfanumericos.",
+      "respuesta": "Pensamiento: Ya tengo los dos datos que necesitaba.\nRespuesta final: 145 * 32 = 4640. El resultado tiene 4 caracteres; en realidad son cifras, no letras (4, 6, 4 y 0)."
+    }
+  ]
+}

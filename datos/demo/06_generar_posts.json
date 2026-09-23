@@ -1,0 +1,24 @@
+{
+  "receta": "06_generar_posts",
+  "nota": "Respuestas para el modo demo (NIM_DEMO=1). La clave es el SHA-256 de los mensajes enviados; 'origen' dice de donde sale cada respuesta.",
+  "entradas": [
+    {
+      "clave": "e6cf1337a1283485a5cfb2e2e13e26d9",
+      "origen": "redactada a mano",
+      "peticion": "Escribe un post de LinkedIn en espanol sobre: Como una PYME puede empezar a usar IA Estilo: profesional pero humano, en primera persona. Empieza con un gancho d...",
+      "respuesta": "La IA no es solo para empresas con departamento de datos.\n\nLa semana pasada una panadería con 6 empleados me contó que ahorra 5 horas semanales respondiendo pedidos por WhatsApp con ayuda de un asistente. No compraron software caro: empezaron con una tarea pequeña y repetitiva.\n\nSi tienes una PYME, este es el camino que más veo funcionar:\n1. Elige UNA tarea que hoy te quite tiempo (responder correos, clasificar gastos, resumir reuniones).\n2. Pruébala dos semanas con herramientas gratuitas y mide cuánto tiempo ahorras.\n3. Solo si funciona, intégrala en tu proceso y forma a tu equipo.\n\nLo difícil no es la tecnología: es elegir bien el primer problema.\n\n¿Cuál sería esa primera tarea en tu negocio?\n\n#PYME #InteligenciaArtificial #Productividad"
+    },
+    {
+      "clave": "66bba02228ccd2e3d30ea158c2b2e61e",
+      "origen": "redactada a mano",
+      "peticion": "Escribe un hilo de X (Twitter) en espanol sobre: Como una PYME puede empezar a usar IA Formato: numera cada tuit como \"1/\", \"2/\", etc. Entre 4 y 6 tuits. El pri...",
+      "respuesta": "1/ Tu PYME no necesita un \"proyecto de IA\". Necesita quitarse de encima una tarea aburrida. Te cuento cómo empezar esta semana 👇\n\n2/ Haz una lista de tareas repetitivas: responder las mismas preguntas, pasar facturas a Excel, redactar correos. Elige la que más horas te coma.\n\n3/ Prueba una herramienta gratuita durante 2 semanas. Anota cuánto tardabas antes y cuánto tardas ahora. Sin datos, no hay decisión.\n\n4/ Revisa siempre lo que produce la IA. Es un asistente rápido, no un empleado infalible: la última palabra es tuya.\n\n5/ Si funcionó, documenta el proceso y enséñaselo a tu equipo. Si no, pasa a la siguiente tarea de la lista.\n\n6/ La ventaja no la tiene quien usa más IA, sino quien la aplica al problema correcto. ¿Por cuál empezarías tú?"
+    },
+    {
+      "clave": "765b764603cbf9c3ba88bfc3a0003fdd",
+      "origen": "redactada a mano",
+      "peticion": "Escribe un caption de Instagram en espanol sobre: Como una PYME puede empezar a usar IA Estilo: cercano y visual, con algunos emojis bien puestos (sin abusar). ...",
+      "respuesta": "¿Tu negocio es pequeño? Perfecto: la IA también es para ti 🚀\n\nEmpieza por una sola tarea que te robe tiempo cada semana (responder mensajes, ordenar gastos, escribir correos) y pruébala gratis durante 15 días ⏱️\n\nMide el tiempo que ahorras y decide con datos. ¡Tu próximo empleado estrella puede ser un asistente! 🤖✨\n\n#PYMEs #Emprendedores #InteligenciaArtificial #NegociosLocales #Productividad #Latam #Innovacion"
+    }
+  ]
+}

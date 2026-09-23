@@ -1,0 +1,12 @@
+{
+  "receta": "02_clasificar_gastos",
+  "nota": "Respuestas para el modo demo (NIM_DEMO=1). La clave es el SHA-256 de los mensajes enviados; 'origen' dice de donde sale cada respuesta.",
+  "entradas": [
+    {
+      "clave": "89d60d23c8ad1af749b375c79bcabe88",
+      "origen": "redactada a mano",
+      "peticion": "Clasifica cada movimiento en UNA de estas categorias exactas: Alimentacion, Transporte, Servicios, Salud, Entretenimiento, Compras, Educacion, Ingresos, Otros D...",
+      "respuesta": "```json\n{\n  \"0\": \"Alimentacion\",\n  \"1\": \"Transporte\",\n  \"2\": \"Ingresos\",\n  \"3\": \"Entretenimiento\",\n  \"4\": \"Salud\",\n  \"5\": \"Transporte\",\n  \"6\": \"Alimentacion\",\n  \"7\": \"Servicios\",\n  \"8\": \"Alimentacion\",\n  \"9\": \"Alimentacion\",\n  \"10\": \"Salud\",\n  \"11\": \"Entretenimiento\",\n  \"12\": \"Alimentacion\",\n  \"13\": \"Salud\",\n  \"14\": \"Educacion\",\n  \"15\": \"Alimentacion\",\n  \"16\": \"Transporte\",\n  \"17\": \"Ingresos\",\n  \"18\": \"Entretenimiento\",\n  \"19\": \"Transporte\",\n  \"20\": \"Salud\",\n  \"21\": \"Alimentacion\",\n  \"22\": \"Servicios\",\n  \"23\": \"Alimentacion\",\n  \"24\": \"Educacion\",\n  \"25\": \"Transporte\",\n  \"26\": \"Alimentacion\",\n  \"27\": \"Salud\",\n  \"28\": \"Entretenimiento\"\n}\n```"
+    }
+  ]
+}

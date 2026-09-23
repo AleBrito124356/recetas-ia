@@ -1,0 +1,12 @@
+{
+  "receta": "13_email_profesional",
+  "nota": "Respuestas para el modo demo (NIM_DEMO=1). La clave es el SHA-256 de los mensajes enviados; 'origen' dice de donde sale cada respuesta.",
+  "entradas": [
+    {
+      "clave": "728a2b4a89c39907e0808f09b0ab392c",
+      "origen": "redactada a mano",
+      "peticion": "Convierte estos puntos en un correo bien redactado. Puedes reordenarlos para que fluya mejor: reunion con el proveedor de cafe movida al jueves a las 10am traer...",
+      "respuesta": "Asunto: Reunión con el proveedor de café: pasa al jueves a las 10:00\n\nHola, equipo:\n\nLes cuento que la reunión con el proveedor de café se movió al jueves a las 10:00. Para aprovecharla, traigan por favor las cifras de consumo del trimestre.\n\nEn la reunión queremos preguntar si mantienen el precio del grano hasta junio y pedirles una muestra del nuevo tueste medio para probarlo.\n\n¿Me confirman su asistencia antes del miércoles?\n\n¡Gracias y un saludo!"
+    }
+  ]
+}

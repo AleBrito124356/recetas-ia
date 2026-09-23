@@ -1,0 +1,18 @@
+{
+  "receta": "11_datos_sinteticos",
+  "nota": "Respuestas para el modo demo (NIM_DEMO=1). La clave es el SHA-256 de los mensajes enviados; 'origen' dice de donde sale cada respuesta.",
+  "entradas": [
+    {
+      "clave": "6c37610afa0a769b3a958c3a51c276be",
+      "origen": "redactada a mano",
+      "peticion": "Genera 10 clientes ficticios pero realistas de America Latina. Devuelve SOLO un array JSON. Cada cliente: {\"id\": 1, \"nombre\": \"Nombre Apellido\", \"email\": \"corre...",
+      "respuesta": "Aquí tienes los 10 clientes en formato JSON:\n\n[\n  {\"id\": 1, \"nombre\": \"Mariana Castillo\", \"email\": \"mariana.castillo@ejemplo.com\", \"ciudad\": \"Ciudad de Panama\", \"pais\": \"Panama\"},\n  {\"id\": 2, \"nombre\": \"Diego Ramirez\", \"email\": \"diego.ramirez@ejemplo.com\", \"ciudad\": \"Bogota\", \"pais\": \"Colombia\"},\n  {\"id\": 3, \"nombre\": \"Valentina Rojas\", \"email\": \"valentina.rojas@ejemplo.com\", \"ciudad\": \"Santiago\", \"pais\": \"Chile\"},\n  {\"id\": 4, \"nombre\": \"Andres Morales\", \"email\": \"andres.morales@ejemplo.com\", \"ciudad\": \"Lima\", \"pais\": \"Peru\"},\n  {\"id\": 5, \"nombre\": \"Camila Herrera\", \"email\": \"camila.herrera@ejemplo.com\", \"ciudad\": \"Guadalajara\", \"pais\": \"Mexico\"},\n  {\"id\": 6, \"nombre\": \"Luis Fernandez\", \"email\": \"luis.fernandez@ejemplo.com\", \"ciudad\": \"Quito\", \"pais\": \"Ecuador\"},\n  {\"id\": 7, \"nombre\": \"Sofia Vargas\", \"email\": \"sofia.vargas@ejemplo.com\", \"ciudad\": \"San Jose\", \"pais\": \"Costa Rica\"},\n  {\"id\": 8, \"nombre\": \"Javier Pineda\", \"email\": \"javier.pineda@ejemplo.com\", \"ciudad\": \"Tegucigalpa\", \"pais\": \"Honduras\"},\n  {\"id\": 9, \"nombre\": \"Daniela Ortiz\", \"email\": \"daniela.ortiz@ejemplo.com\", \"ciudad\": \"Montevideo\", \"pais\": \"Uruguay\"},\n  {\"id\": 10, \"nombre\": \"Mateo Gutierrez\", \"email\": \"mateo.gutierrez@ejemplo.com\", \"ciudad\": \"Cordoba\", \"pais\": \"Argentina\"}\n]"
+    },
+    {
+      "clave": "df5328568bdee0db4a6854bbae2a15d0",
+      "origen": "redactada a mano",
+      "peticion": "Genera 8 productos ficticios para una tienda general. Devuelve SOLO un array JSON. Cada producto: {\"id\": 1, \"nombre\": \"Nombre del producto\", \"categoria\": \"Categ...",
+      "respuesta": "{\"productos\": [\n  {\"id\": 1, \"nombre\": \"Cafe molido 500 g\", \"categoria\": \"Despensa\", \"precio\": 6.75},\n  {\"id\": 2, \"nombre\": \"Taza de ceramica 350 ml\", \"categoria\": \"Hogar\", \"precio\": 9.90},\n  {\"id\": 3, \"nombre\": \"Audifonos inalambricos\", \"categoria\": \"Tecnologia\", \"precio\": 34.99},\n  {\"id\": 4, \"nombre\": \"Mochila urbana\", \"categoria\": \"Accesorios\", \"precio\": 27.50},\n  {\"id\": 5, \"nombre\": \"Botella termica 750 ml\", \"categoria\": \"Hogar\", \"precio\": \"12.50\"},\n  {\"id\": 6, \"nombre\": \"Cuaderno A5 rayado\", \"categoria\": \"Papeleria\", \"precio\": 3.25},\n  {\"id\": 7, \"nombre\": \"Lampara LED de escritorio\", \"categoria\": \"Hogar\", \"precio\": 18.90},\n  {\"id\": 8, \"nombre\": \"Cargador USB-C 20 W\", \"categoria\": \"Tecnologia\", \"precio\": 15.00}\n]}"
+    }
+  ]
+}

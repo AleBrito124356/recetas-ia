@@ -1,0 +1,42 @@
+{
+  "receta": "04_responder_resenas",
+  "nota": "Respuestas para el modo demo (NIM_DEMO=1). La clave es el SHA-256 de los mensajes enviados; 'origen' dice de donde sale cada respuesta.",
+  "entradas": [
+    {
+      "clave": "b675983d38bc9af0b919d2984f51f48f",
+      "origen": "redactada a mano",
+      "peticion": "Redacta la respuesta a esta resena: \"Excelente atencion, el cafe estaba delicioso y el ambiente muy acogedor. Volveria sin dudarlo. La chica que nos atendio fue...",
+      "respuesta": "Muchas gracias por su reseña y por destacar la atención de nuestro equipo. Nos alegra saber que disfrutó del café y del ambiente; le haremos llegar sus palabras a quien le atendió. Será un gusto recibirle de nuevo."
+    },
+    {
+      "clave": "84f2e119f9985612beb1e543fcf2c59c",
+      "origen": "redactada a mano",
+      "peticion": "Redacta la respuesta a esta resena: \"Espere 40 minutos por un capuchino y cuando llego estaba frio. El lugar bonito pero el servicio dejo mucho que desear. Una ...",
+      "respuesta": "Lamentamos mucho la espera de 40 minutos y que su capuchino llegara frío: no es la experiencia que queremos ofrecer. Ya lo estamos revisando con el equipo para mejorar los tiempos en las horas de más afluencia. Si nos escribe por mensaje directo, nos gustaría invitarle a una próxima visita."
+    },
+    {
+      "clave": "b1ec5daeed800eadb110871102459ed4",
+      "origen": "redactada a mano",
+      "peticion": "Redacta la respuesta a esta resena: \"Buen lugar para trabajar con la laptop, wifi rapido y enchufes en casi todas las mesas. El unico detalle es que a veces se ...",
+      "respuesta": "Gracias por su reseña y por valorar el wifi y los enchufes; nos alegra que sea un buen lugar para trabajar. Tomamos nota de que a veces cuesta encontrar mesa y estamos estudiando cómo aprovechar mejor el espacio. Esperamos verle pronto."
+    },
+    {
+      "clave": "adde2eb66434fd74177ae43d8f5649d4",
+      "origen": "redactada a mano",
+      "peticion": "Redacta la respuesta a esta resena: \"Los precios me parecieron un poco altos para el tamano de las porciones. El sabor bien, pero por lo que cobran esperaba mas...",
+      "respuesta": "Gracias por tomarse el tiempo de escribirnos y por su comentario sobre el sabor. Entendemos su punto sobre el tamaño de las porciones en relación con el precio y lo trasladaremos al equipo que revisa la carta. Su opinión nos ayuda a mejorar."
+    },
+    {
+      "clave": "d721793701a9137b532d314bb03e0be5",
+      "origen": "redactada a mano",
+      "peticion": "Redacta la respuesta a esta resena: \"Pedi un pastel de zanahoria y me trajeron otro. Cuando lo reclame, la respuesta del mesero fue cortante. No es la primera v...",
+      "respuesta": "Lamentamos que le sirvieran un pastel distinto al que pidió y, sobre todo, la forma en que se atendió su reclamo. No es el trato que queremos dar y ya lo estamos hablando con el equipo. Le agradeceríamos que nos escriba por mensaje directo para ofrecerle una solución."
+    },
+    {
+      "clave": "2a3606bdd3a7af4698f111eb0e2b4e4c",
+      "origen": "redactada a mano",
+      "peticion": "Redacta la respuesta a esta resena: \"Mi lugar favorito del barrio. Voy casi todos los sabados, el personal ya me conoce y siempre me reciben con una sonrisa. El...",
+      "respuesta": "¡Qué alegría leer su reseña! Gracias por elegirnos cada sábado; que el equipo ya le conozca es lo mejor que nos puede pasar. Le esperamos con el pan de la casa recién hecho."
+    }
+  ]
+}
