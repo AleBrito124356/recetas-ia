@@ -14,9 +14,13 @@ env/
 # Salidas generadas por las recetas (los archivos de ejemplo SI se suben)
 datos/movimientos_clasificados.json
 datos/sinteticos/
+datos/*_traducido.srt
 results/
 logs/
 *.log
+
+# Cache de embeddings de la receta 08 (se regenera sola)
+.cache/
 
 # Sistema operativo / editores
 .DS_Store

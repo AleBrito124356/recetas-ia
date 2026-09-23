@@ -1,0 +1,12 @@
+{
+  "receta": "12_revisar_texto",
+  "nota": "Respuestas para el modo demo (NIM_DEMO=1). La clave es el SHA-256 de los mensajes enviados; 'origen' dice de donde sale cada respuesta.",
+  "entradas": [
+    {
+      "clave": "036c64725c0c769f19b32ebda163ab0c",
+      "origen": "redactada a mano",
+      "peticion": "ola equipo, les escrivo para contarles que el lanzamiento de la nueva version se mueve al 22 de marzo. aviamos quedado en el 15 pero desarrollo pidio una semana...",
+      "respuesta": "Hola, equipo: les escribo para contarles que el lanzamiento de la nueva versión se mueve al 22 de marzo. Habíamos quedado en el 15, pero desarrollo pidió una semana más para las pruebas y, la verdad, tiene sentido.\n\nPor favor, revisen sus tareas y, si alguien tiene dudas, me avisan antes del viernes; así lo resolvemos rápido. Gracias a todos por el esfuerzo de estas semanas."
+    }
+  ]
+}

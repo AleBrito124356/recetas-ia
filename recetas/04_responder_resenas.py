@@ -17,10 +17,10 @@ Uso
   python recetas/04_responder_resenas.py
   python recetas/04_responder_resenas.py --tono cercano --negocio "Cafe Aroma"
   python recetas/04_responder_resenas.py --archivo datos/resenas.txt --salida borradores.txt
+  python recetas/04_responder_resenas.py --demo      (sin clave: respuestas pregrabadas)
 """
 
 import sys
-import argparse
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -60,7 +60,7 @@ def responder(resena, negocio, descripcion_tono):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Genera borradores de respuesta a resenas.")
+    parser = nim.nuevo_parser("Genera borradores de respuesta a resenas.")
     parser.add_argument(
         "--archivo",
         default=str(nim.ruta_datos("resenas.txt")),
@@ -104,4 +104,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    nim.ejecutar(main)

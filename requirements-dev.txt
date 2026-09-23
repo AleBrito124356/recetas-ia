@@ -1,0 +1,4 @@
+# Dependencias para desarrollar y ejecutar las pruebas.
+# Instala todo con:  pip install -r requirements-dev.txt
+-r requirements.txt
+pytest>=7.0

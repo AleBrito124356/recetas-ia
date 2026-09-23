@@ -1,0 +1,18 @@
+{
+  "receta": "10_describir_imagenes",
+  "nota": "Respuestas para el modo demo (NIM_DEMO=1). La clave es el SHA-256 de los mensajes enviados; 'origen' dice de donde sale cada respuesta.",
+  "entradas": [
+    {
+      "clave": "d934b23fede56c09f60054a99e89cc99",
+      "origen": "redactada a mano",
+      "peticion": "Describe esta imagen en UNA sola frase corta en espanol, para usar como texto alternativo (alt-text) de accesibilidad. Se factual y concreto: que se ve, no inte...",
+      "respuesta": "Taza de cerámica roja llena de café, con el asa a la derecha, sobre una mesa de madera y con vapor saliendo."
+    },
+    {
+      "clave": "b2487c708e5433783c99f7dfd155b1ac",
+      "origen": "redactada a mano",
+      "peticion": "Escribe una descripcion de producto en espanol para una tienda online, basandote en lo que ves en la imagen. Un parrafo (3-4 frases), atractivo pero honesto, re...",
+      "respuesta": "Taza de cerámica esmaltada en un rojo intenso con acabado brillante, de forma cilíndrica y con un asa amplia para sujetarla con comodidad. Su diseño clásico la hace ideal para el café de cada mañana, un té o un chocolate caliente. El color aporta un toque cálido tanto a la mesa del desayuno como al escritorio de trabajo."
+    }
+  ]
+}

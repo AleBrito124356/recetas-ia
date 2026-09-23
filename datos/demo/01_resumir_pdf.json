@@ -1,0 +1,12 @@
+{
+  "receta": "01_resumir_pdf",
+  "nota": "Respuestas para el modo demo (NIM_DEMO=1). La clave es el SHA-256 de los mensajes enviados; 'origen' dice de donde sale cada respuesta.",
+  "entradas": [
+    {
+      "clave": "fe9ea1662c18ba63744a483a75ac780a",
+      "origen": "redactada a mano",
+      "peticion": "A partir del siguiente contenido, entrega EXACTAMENTE este formato: RESUMEN EJECUTIVO: (2 a 4 frases que capturen la esencia) PUNTOS CLAVE: (exactamente 6 vinet...",
+      "respuesta": "RESUMEN EJECUTIVO:\nCafé Aroma cerró el primer trimestre de 2026 con ventas de 48.600 USD, un 12% más que un año antes, impulsadas por los pedidos para llevar (31% de la facturación). El margen bruto se sostuvo en el 64% pese a la subida del café verde, gracias a la renegociación con el tostador y a una menor merma. Para el segundo trimestre se aprobaron una segunda máquina de espresso y una suscripción mensual de café en grano.\n\nPUNTOS CLAVE:\n- Ventas de 48.600 USD (+12% interanual), con un ticket promedio de 6,80 USD (+4%) y 7.150 clientes atendidos (+8%).\n- Bebidas calientes: 29.200 USD (60%); repostería: 11.700 USD (24%); café en grano: 7.700 USD (16%), la línea que más creció (+27%).\n- El café verde subió un 9%; se compensó renegociando con el tostador y bajando la merma de leche del 6% al 3,5%.\n- Nota media de 4,6 sobre 5 en reseñas; las quejas se concentran en esperas de más de 15 minutos entre las 8:00 y las 9:30.\n- Riesgos: otra posible subida del 5% del café verde, dependencia de un único proveedor de repostería y la cafetera principal al límite.\n- Decisiones: segunda máquina de espresso (3.800 USD) antes del 30 de abril, suscripción de café en grano a 22 USD al mes y búsqueda de un segundo proveedor de repostería."
+    }
+  ]
+}

@@ -12,10 +12,11 @@ Uso
 ---
   python recetas/13_email_profesional.py --puntos "reunion movida al viernes; traer laptop; confirmar asistencia"
   python recetas/13_email_profesional.py --archivo notas.txt --idioma en --tono formal
+  python recetas/13_email_profesional.py        (usa datos/notas_correo.txt)
+  python recetas/13_email_profesional.py --demo (sin clave: respuesta pregrabada)
 """
 
 import sys
-import argparse
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -48,23 +49,29 @@ def redactar(puntos, idioma, tono):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Redacta un correo profesional desde notas.")
-    grupo = parser.add_mutually_exclusive_group(required=True)
+    parser = nim.nuevo_parser("Redacta un correo profesional desde notas.")
+    grupo = parser.add_mutually_exclusive_group()
     grupo.add_argument("--puntos", help="Puntos del correo separados por ';' o saltos de linea.")
-    grupo.add_argument("--archivo", help="Archivo de texto con los puntos.")
+    grupo.add_argument(
+        "--archivo",
+        help="Archivo de texto con los puntos (por defecto datos/notas_correo.txt).",
+    )
     parser.add_argument("--idioma", choices=list(IDIOMAS.keys()), default="es", help="Idioma.")
     parser.add_argument("--tono", choices=list(TONOS.keys()), default="cercano", help="Tono.")
     parser.add_argument("--salida", help="Archivo donde guardar el correo.")
     args = parser.parse_args()
 
-    if args.archivo:
-        ruta = Path(args.archivo)
+    if args.puntos is None:
+        ruta = Path(args.archivo or nim.ruta_datos("notas_correo.txt"))
         if not ruta.exists():
             print(f"No encuentro el archivo: {ruta}")
             sys.exit(1)
         puntos = ruta.read_text(encoding="utf-8").strip()
     else:
         puntos = args.puntos.strip()
+    if not puntos:
+        print("No hay puntos para redactar el correo.")
+        sys.exit(1)
 
     print(f"Redactando correo ({IDIOMAS[args.idioma]}, tono {args.tono})...\n")
     correo = redactar(puntos, args.idioma, args.tono)
@@ -79,4 +86,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    nim.ejecutar(main)

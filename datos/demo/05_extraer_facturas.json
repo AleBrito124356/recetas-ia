@@ -1,0 +1,12 @@
+{
+  "receta": "05_extraer_facturas",
+  "nota": "Respuestas para el modo demo (NIM_DEMO=1). La clave es el SHA-256 de los mensajes enviados; 'origen' dice de donde sale cada respuesta.",
+  "entradas": [
+    {
+      "clave": "b0aa97638899efe251c176555c558ea5",
+      "origen": "redactada a mano",
+      "peticion": "Extrae los datos de esta factura al siguiente esquema JSON: { \"emisor\": { \"nombre\": \"razon social de quien emite\", \"ruc_nit\": \"RUC (Panama/Peru) o NIT (Colombia...",
+      "respuesta": "{\n  \"emisor\": {\n    \"nombre\": \"DISTRIBUIDORA CENTRAL, S.A.\",\n    \"ruc_nit\": \"155612345-2-2021 DV 33\",\n    \"direccion\": \"Ave. Ricardo J. Alfaro, Edificio Plaza Norte, Local 4, Ciudad de Panama, Panama\"\n  },\n  \"cliente\": {\n    \"nombre\": \"Cafeteria La Esquina\",\n    \"ruc_nit\": \"8-912-3456\"\n  },\n  \"documento\": {\n    \"tipo\": \"factura\",\n    \"numero\": \"000148723\",\n    \"fecha\": \"2026-02-12\",\n    \"moneda\": \"PAB\"\n  },\n  \"items\": [\n    {\"descripcion\": \"Saco de cafe grano 5 lb\", \"cantidad\": 4, \"precio_unitario\": 18.50, \"importe\": 74.00},\n    {\"descripcion\": \"Caja de vasos 12oz (50u)\", \"cantidad\": 2, \"precio_unitario\": 9.75, \"importe\": 19.50},\n    {\"descripcion\": \"Jarabe vainilla botella 1L\", \"cantidad\": 6, \"precio_unitario\": 6.25, \"importe\": 37.50},\n    {\"descripcion\": \"Molino electrico industrial\", \"cantidad\": 1, \"precio_unitario\": 145.00, \"importe\": 145.00}\n  ],\n  \"subtotal\": 276.00,\n  \"impuesto\": {\"nombre\": \"ITBMS\", \"tasa\": 0.07, \"monto\": 19.32},\n  \"total\": 295.32\n}"
+    }
+  ]
+}

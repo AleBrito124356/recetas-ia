@@ -1,0 +1,12 @@
+{
+  "receta": "07_traducir_subtitulos",
+  "nota": "Respuestas para el modo demo (NIM_DEMO=1). La clave es el SHA-256 de los mensajes enviados; 'origen' dice de donde sale cada respuesta.",
+  "entradas": [
+    {
+      "clave": "6383d828fee738dadc24c23aad1c0b9c",
+      "origen": "redactada a mano",
+      "peticion": "Traduce cada fragmento al ingles. Manten el separador tal cual entre fragmentos: Hola y bienvenidos a este tutorial rapido. <<<>>> Hoy vamos a aprender a usar i...",
+      "respuesta": "Hello and welcome to this quick tutorial.\n<<<>>>\nToday we are going to learn how to use artificial intelligence in everyday tasks.\n<<<>>>\nYou don't need to be an expert programmer to get the most out of it.\n<<<>>>\nLet's start with a simple example that you can try right now.\n<<<>>>\nIf you like the video, don't forget to subscribe."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "receta": "14_audio_a_notas",
+  "nota": "Respuestas para el modo demo (NIM_DEMO=1). La clave es el SHA-256 de los mensajes enviados; 'origen' dice de donde sale cada respuesta.",
+  "entradas": [
+    {
+      "clave": "528270ebd1f0cc1623f53d59c8ce2d31",
+      "origen": "redactada a mano",
+      "peticion": "Genera la minuta de esta reunion con esta estructura JSON: { \"titulo\": \"titulo breve de la reunion\", \"resumen\": \"2-3 frases\", \"decisiones\": [\"decision 1\", \"deci...",
+      "respuesta": "```json\n{\n  \"titulo\": \"Plan de lanzamiento de la version 2.0\",\n  \"resumen\": \"El equipo acordo mover el lanzamiento de la version 2.0 al 22 de marzo para dar una semana mas a las pruebas y repartio las tareas de comunicacion y del video de demostracion. El precio del plan Premium y el responsable de la documentacion tecnica quedaron pendientes.\",\n  \"decisiones\": [\n    \"Mover el lanzamiento del 15 al 22 de marzo para ampliar las pruebas una semana.\",\n    \"El equipo de diseno grabara el video de demostracion con el guion de Carlos.\"\n  ],\n  \"tareas\": [\n    {\"tarea\": \"Actualizar el calendario y avisar a los clientes del cambio de fecha\", \"responsable\": \"Lucia\", \"fecha\": \"Sin fecha\"},\n    {\"tarea\": \"Escribir el guion del video de demostracion\", \"responsable\": \"Carlos\", \"fecha\": \"Antes del lanzamiento\"},\n    {\"tarea\": \"Coordinar con Diego la grabacion del video de demostracion\", \"responsable\": \"Lucia\", \"fecha\": \"18 de marzo\"},\n    {\"tarea\": \"Preparar la comparativa de precios de la competencia\", \"responsable\": \"Ana\", \"fecha\": \"Proxima reunion\"},\n    {\"tarea\": \"Hablar con soporte y asignar responsable de la documentacion tecnica\", \"responsable\": \"Ana\", \"fecha\": \"Manana\"}\n  ],\n  \"pendientes\": [\n    \"Definir el precio del nuevo plan Premium con datos de la competencia.\",\n    \"Asignar responsable para actualizar la documentacion tecnica.\"\n  ]\n}\n```"
+    }
+  ]
+}

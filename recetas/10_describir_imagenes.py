@@ -17,10 +17,14 @@ Uso
 ---
   python recetas/10_describir_imagenes.py foto_producto.jpg
   python recetas/10_describir_imagenes.py zapatilla.png --contexto "zapatilla deportiva para correr"
+  python recetas/10_describir_imagenes.py          (usa datos/producto_ejemplo.png)
+  python recetas/10_describir_imagenes.py --demo   (sin clave: respuestas pregrabadas)
+
+Formatos: jpg, png y webp. Las imágenes muy grandes gastan más tokens: si
+puedes, redúcelas a unos 1000 px de lado antes de enviarlas.
 """
 
 import sys
-import argparse
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -50,8 +54,13 @@ def generar_descripcion_producto(ruta_imagen, contexto):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Describe una imagen con IA de vision.")
-    parser.add_argument("imagen", help="Ruta a la imagen (jpg, png, webp).")
+    parser = nim.nuevo_parser("Describe una imagen con IA de vision.")
+    parser.add_argument(
+        "imagen",
+        nargs="?",
+        default=str(nim.ruta_datos("producto_ejemplo.png")),
+        help="Ruta a la imagen: jpg, png o webp (por defecto datos/producto_ejemplo.png).",
+    )
     parser.add_argument(
         "--contexto", default="", help="Pista opcional sobre que es el producto."
     )
@@ -75,4 +84,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    nim.ejecutar(main)

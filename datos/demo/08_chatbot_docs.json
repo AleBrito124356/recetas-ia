@@ -1,0 +1,12 @@
+{
+  "receta": "08_chatbot_docs",
+  "nota": "Respuestas para el modo demo (NIM_DEMO=1). La clave es el SHA-256 de los mensajes enviados; 'origen' dice de donde sale cada respuesta.",
+  "entradas": [
+    {
+      "clave": "0cae827d19e9167e935179674d129ccc",
+      "origen": "redactada a mano",
+      "peticion": "CONTEXTO: [02_precios.md] Facturia — Planes y precios > Plan Pro — 12 USD/mes - Facturas ilimitadas. - Hasta 3 usuarios. - Clientes ilimitados. - Recordatorios ...",
+      "respuesta": "El plan Pro cuesta 12 USD al mes (02_precios.md). Incluye facturas y clientes ilimitados, hasta 3 usuarios, recordatorios automáticos de cobro, reportes exportables a PDF y CSV, plantillas con tu logo y colores y soporte prioritario por chat (02_precios.md). Si eres estudiante o una organización sin fines de lucro, puedes pedir un 50% de descuento en el plan Pro escribiendo al soporte (03_preguntas_frecuentes.md)."
+    }
+  ]
+}

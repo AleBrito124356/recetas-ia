@@ -1,0 +1,4 @@
+# Archivos de ejemplo binarios: git no debe tocar sus saltos de linea
+# (el PDF no lleva bytes nulos y git podria tomarlo por texto).
+*.pdf binary
+*.png binary

@@ -11,20 +11,25 @@ decidir en 30 segundos si un documento merece que lo leas entero.
 Cómo funciona
 -------------
 1. Extrae el texto del PDF con `pypdf` (sin conexión, todo local).
-2. Si el documento es largo, lo parte en trozos y resume cada trozo. Esto se
-   llama estrategia "map-reduce": primero resumes las partes (map) y luego
-   resumes los resúmenes (reduce). Así cabe en la ventana de contexto del
-   modelo por muy largo que sea el PDF.
+2. Si el documento es largo, lo parte en trozos de como mucho `--tam-trozo`
+   caracteres y resume cada trozo. Esto se llama estrategia "map-reduce":
+   primero resumes las partes (map) y luego resumes los resúmenes (reduce).
+   Si los resúmenes juntos siguen sin caber, se repite la reducción por
+   rondas. Ningún trozo supera el límite: los párrafos gigantes se parten por
+   líneas, frases o palabras. Así cabe en la ventana de contexto del modelo
+   por muy largo que sea el PDF.
 3. Pide al modelo un resumen ejecutivo + puntos clave en un formato limpio.
 
 Uso
 ---
+  python recetas/01_resumir_pdf.py                      (usa datos/informe_ejemplo.pdf)
   python recetas/01_resumir_pdf.py ruta/al/documento.pdf
   python recetas/01_resumir_pdf.py informe.pdf --puntos 8
+  python recetas/01_resumir_pdf.py --demo               (sin clave: respuesta pregrabada)
 """
 
+import re
 import sys
-import argparse
 from pathlib import Path
 
 # Añadimos la raíz del repo al path para poder importar `comun` sin instalar
@@ -33,9 +38,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from comun import nim  # noqa: E402
 
+TAM_TROZO = 9000  # caracteres por trozo: holgado para modelos de 8k+ tokens
+MAX_RONDAS = 4  # rondas de reducción; cada una divide el texto ~5 veces
+
 
 def extraer_texto_pdf(ruta_pdf):
-    """Devuelve el texto plano de todas las páginas del PDF."""
+    """Devuelve (texto plano de todas las páginas, número de páginas)."""
     try:
         from pypdf import PdfReader
     except ImportError:
@@ -46,28 +54,71 @@ def extraer_texto_pdf(ruta_pdf):
     # `extract_text` puede devolver None en páginas sin capa de texto (por
     # ejemplo, escaneos). Filtramos esos casos para no romper el join.
     paginas = [(pagina.extract_text() or "") for pagina in lector.pages]
-    texto = "\n\n".join(paginas).strip()
-    return texto, len(lector.pages)
+    return limpiar_texto("\n\n".join(paginas)), len(lector.pages)
 
 
-def trocear(texto, tam_max=9000):
+def limpiar_texto(texto):
     """
-    Parte el texto en trozos de como mucho `tam_max` caracteres.
-
-    Cortamos por párrafos (dobles saltos de línea) para no partir una frase por
-    la mitad. Es una heurística simple pero suficiente para resumir.
+    Normaliza espacios: quita espacios repetidos y líneas vacías sobrantes.
+    Ahorra tokens y hace que el mismo PDF dé siempre el mismo texto.
     """
-    parrafos = texto.split("\n\n")
+    lineas = [" ".join(linea.split()) for linea in texto.splitlines()]
+    return re.sub(r"\n{3,}", "\n\n", "\n".join(lineas)).strip()
+
+
+# Niveles de corte, de más a menos natural: líneas, frases y palabras.
+_NIVELES = (
+    ("\n", re.compile(r"\n")),
+    (" ", re.compile(r"(?<=[.!?;:])\s+")),
+    (" ", re.compile(r"\s+")),
+)
+
+
+def _empaquetar(piezas, tam_max, union):
+    """Junta piezas consecutivas mientras quepan en `tam_max`."""
     trozos, actual = [], ""
-    for parrafo in parrafos:
-        if len(actual) + len(parrafo) + 2 > tam_max and actual:
+    for pieza in piezas:
+        candidato = f"{actual}{union}{pieza}" if actual else pieza
+        if len(candidato) > tam_max and actual:
             trozos.append(actual)
-            actual = parrafo
+            actual = pieza
         else:
-            actual = f"{actual}\n\n{parrafo}" if actual else parrafo
+            actual = candidato
     if actual:
         trozos.append(actual)
     return trozos
+
+
+def _partir(texto, tam_max, nivel=0):
+    """Parte un bloque demasiado largo por el corte más natural posible."""
+    if len(texto) <= tam_max:
+        return [texto]
+    if nivel >= len(_NIVELES):
+        # Una "palabra" más larga que el límite (p. ej. una URL enorme): a cuchillo.
+        return [texto[i : i + tam_max] for i in range(0, len(texto), tam_max)]
+    union, patron = _NIVELES[nivel]
+    piezas = [p for p in patron.split(texto) if p.strip()]
+    if len(piezas) <= 1:
+        return _partir(texto, tam_max, nivel + 1)
+    menores = []
+    for pieza in piezas:
+        menores.extend(_partir(pieza, tam_max, nivel + 1))
+    return _empaquetar(menores, tam_max, union)
+
+
+def trocear(texto, tam_max=TAM_TROZO):
+    """
+    Parte el texto en trozos de como mucho `tam_max` caracteres (garantizado).
+
+    Primero corta por párrafos (líneas en blanco) para no partir una idea por
+    la mitad. Si un párrafo solo ya es más largo que el límite, lo corta por
+    líneas, luego por frases y, como último recurso, por palabras.
+    """
+    parrafos = [p.strip() for p in re.split(r"\n\s*\n", texto) if p.strip()]
+    piezas = []
+    for parrafo in parrafos:
+        piezas.extend(_partir(parrafo, tam_max))
+    return _empaquetar(piezas, tam_max, "\n\n")
 
 
 def resumir_trozo(trozo):
@@ -79,6 +130,26 @@ def resumir_trozo(trozo):
         temperatura=0.2,
         max_tokens=400,
     )
+
+
+def condensar(texto, tam_max=TAM_TROZO, max_rondas=MAX_RONDAS):
+    """
+    Reduce el texto por rondas de map-reduce hasta que cabe en un solo trozo.
+
+    Ronda 1: 40 trozos -> 40 resúmenes. Si esos resúmenes juntos aún no caben,
+    ronda 2: se trocean y se resumen otra vez, y así hasta `max_rondas`.
+    """
+    trozos = trocear(texto, tam_max)
+    ronda = 0
+    while len(trozos) > 1 and ronda < max_rondas:
+        ronda += 1
+        print(f"Documento largo: ronda {ronda}, resumiendo {len(trozos)} partes...")
+        resumenes = []
+        for i, trozo in enumerate(trozos, start=1):
+            print(f"  parte {i}/{len(trozos)}")
+            resumenes.append(resumir_trozo(trozo))
+        trozos = trocear("\n\n".join(resumenes), tam_max)
+    return "\n\n".join(trozos)
 
 
 def resumen_final(texto, num_puntos):
@@ -100,10 +171,21 @@ def resumen_final(texto, num_puntos):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Resume un PDF con NVIDIA NIM.")
-    parser.add_argument("pdf", help="Ruta al archivo PDF a resumir.")
+    parser = nim.nuevo_parser("Resume un PDF con NVIDIA NIM.")
+    parser.add_argument(
+        "pdf",
+        nargs="?",
+        default=str(nim.ruta_datos("informe_ejemplo.pdf")),
+        help="Ruta al PDF a resumir (por defecto datos/informe_ejemplo.pdf).",
+    )
     parser.add_argument(
         "--puntos", type=int, default=6, help="Numero de puntos clave (por defecto 6)."
+    )
+    parser.add_argument(
+        "--tam-trozo",
+        type=int,
+        default=TAM_TROZO,
+        help=f"Caracteres maximos por trozo en el map-reduce (por defecto {TAM_TROZO}).",
     )
     args = parser.parse_args()
 
@@ -117,24 +199,12 @@ def main():
     if not texto:
         print(
             "No pude extraer texto. Puede que el PDF sea un escaneo (imagenes).\n"
-            "En ese caso primero pasalo por OCR (mira la receta 03 para audio, o "
-            "usa un motor de OCR sobre las imagenes)."
+            "En ese caso primero pasalo por un motor de OCR y vuelve a probar."
         )
         sys.exit(1)
 
     print(f"{num_paginas} paginas, {len(texto):,} caracteres extraidos.")
-
-    trozos = trocear(texto)
-    if len(trozos) == 1:
-        contenido = trozos[0]
-    else:
-        # Documento largo: resumimos por partes y luego juntamos.
-        print(f"Documento largo: resumiendo en {len(trozos)} partes...")
-        resumenes = []
-        for i, trozo in enumerate(trozos, start=1):
-            print(f"  parte {i}/{len(trozos)}")
-            resumenes.append(resumir_trozo(trozo))
-        contenido = "\n\n".join(resumenes)
+    contenido = condensar(texto, max(500, args.tam_trozo))
 
     print("Generando resumen final...\n")
     salida = resumen_final(contenido, args.puntos)
@@ -145,4 +215,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    nim.ejecutar(main)
